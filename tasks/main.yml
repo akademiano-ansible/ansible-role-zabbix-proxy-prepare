@@ -1,0 +1,7 @@
+---
+- name: set zabbix server facts for agent from server
+  set_fact:
+    zabbix_server_host: "{{ zabbix_server_host | default(zabbix_server_network_address, true) }}"
+    cacheable: true
+  when: zabbix_server_network_address is defined
+
